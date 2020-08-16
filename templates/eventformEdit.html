@@ -1,0 +1,61 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% include 'usernavbar.html' %}
+{% block content %}
+<br>
+<div class="container" style="">
+    <form class="form-horizontal container" action="/event/edit" method="POST">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="evename">Event Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="evename" name="eve_name" placeholder="Event Name" value="{{event.name}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="eveloc">Event Location</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="eveloc" name ="eve_location" placeholder="Event Location" value="{{event.location}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="evedate">Event Date</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="evedate" name ="eve_date" placeholder="Event Date" value="{{event.date_time}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="evetime">Event Time</label>
+            <div class="col-sm-10">
+                <input type="time" class="form-control" id="evetime" name ="eve_time" placeholder="Event Time" value="{{event.date_time}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="evests">Event Status</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="evests" name ="eve_sts" placeholder="Event Status" value="{{event.status}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+            {% if user.type == 2 %}
+            <a href="/mobiliser/dashboard">Back</a>
+            {% else %}
+            <a href="/dashboard">Back</a>
+            {% endif %}
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}

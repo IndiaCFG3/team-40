@@ -1,0 +1,55 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% include 'usernavbar.html' %}
+{% block content %}
+
+<div class="container">
+    <h1>Profile</h1>
+    <hr>
+    <form action="/profile" method="POST" style="width: 50%">
+        <div class="form-group">
+            <label for="name">Name </label>
+            <input placeholder="My Name" class="form-control" type="text" name="name" id="name" value="{{user.name}}">
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact </label>
+            <input placeholder="+91 999999999" class="form-control" type="text" name="contact" id="contact" value="{{user.contact}}">
+        </div>
+
+        <div class="form-group">
+            <label for="center">Center </label>
+            <input placeholder="My Center" class="form-control" type="text" name="center" id="center" value="{{user.center}}">
+        </div>
+
+        <div class="form-group">
+            <label for="emailid">Email ID </label>
+            <input placeholder="example@gmail.com" class="form-control" type="email" name="emailid" id="emailid" value="{{user.email}}" readonly>
+        </div>
+        <div >
+            <input type="submit" class="btn btn-primary">
+            {% if user.type == 2 %}
+            <a href="/mobiliser/dashboard">Back</a>
+            {% else %}
+            <a href="dashboard">Back</a>
+            {% endif %}
+        </div>
+
+    </form><br>
+    <div class="container" style="height: 200px">
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+

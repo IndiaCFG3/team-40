@@ -1,0 +1,73 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% include 'usernavbar.html' %}
+{% block content %}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Mobilizer Name</th>
+          <th scope="col">Target</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for m in mob%}
+        <td>{{m.name}}</td>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+    </div>
+    {% if user.type == 2 %}
+    <a href="/mobiliser/dashboard">Back</a>
+    {% else %}
+    <a href="/dashboard">Back</a>
+    {% endif %}
+
+{% endblock %}
+

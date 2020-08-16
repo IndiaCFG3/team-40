@@ -1,0 +1,160 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Demo App
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Anudip Event handler</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+</h1>
+<h2>
+  <img src="/media/logo.png" alt="Anudip logo" class="center" width="100" height="275">
+</h2>
+<h3>
+  <br>
+  <br>
+
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">About</h1>
+      <p class="lead">Anudip is a non-profit social enterprise engaged in creating livelihoods for marginalized men
+        and women either educated or unemployed or dropouts. They help them develop their IT skills and place them in
+        IT companies or help them start their own IT enabled service companies.</p>
+    </div>
+  </div>
+
+
+</h3>
+
+<div class="container">
+  <div class="row featurette d-flex justify-content-center align-items-center">
+    <div class="col-xs-10 col-md-6">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card" style="width: 56rem;">
+              <img src="/img4.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Anudip</h5>
+                <p class="word-break: break-word">Working everyday to transfer people lives</p>
+                <button type="button" id="loginbutton" class="btn btn-primary" data-toggle="modal"
+                        data-target="#loginModal">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="container-fluid">
+          <div class="carousel-item">
+            <div class="card" style="width: 56rem;">
+              <img src="/img3.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Trip To Goa</h5>
+                <p class="word-break">Vacationary Helped Us find the veg restaurants with the
+                  experiences of others visited there</p>
+                <button type="button" id="loginbutton" class="btn btn-primary" data-toggle="modal"
+                        data-target="#loginModal">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card" style="width: 56rem;">
+            <img src="/img2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Trip To Shillong</h5>
+              <p class="text-break">Vacationary Helped Us find the routes to various places
+                with
+                their google api </p>
+              <button type="button" id="loginbutton" class="btn btn-primary" data-toggle="modal"
+                      data-target="#loginModal">View Details</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-7">
+    <h1 class="featurette-heading">We started Anudip in 2004<span class="text-muted"></span>
+    </h1>
+    <p class="lead">In early 2005, under the leadership of current Chairman Dipak Basu, Actionaid and Reuters Foundation
+      carried out an ethnographic study in the Ganges Delta region south of Kolkata, India’s third-largest city, which
+      showed that economies of desperately poor and marginalized people can be dramatically impacted by increase of
+      local employment.</p>
+    <h4 class="featurette-heading"> <button type="button" id="loginbutton" class="btn btn-dark" data-toggle="modal"
+                                            data-target="#loginModal">Join us today to help us transfer your lives</button><span class="text-muted"></span>
+    </h4>
+  </div>
+
+
+
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img src="1562933304Anudip Logo.png" alt="Anudip logo" class="center" width="24" height="24">
+        <small class="d-block mb-3 text-muted">© 2017-2020</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Cool stuff</a></li>
+          <li><a class="text-muted" href="#">Random feature</a></li>
+          <li><a class="text-muted" href="#">Team feature</a></li>
+          <li><a class="text-muted" href="#">Stuff for developers</a></li>
+          <li><a class="text-muted" href="#">Another one</a></li>
+          <li><a class="text-muted" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Resource</a></li>
+          <li><a class="text-muted" href="#">Resource name</a></li>
+          <li><a class="text-muted" href="#">Another resource</a></li>
+          <li><a class="text-muted" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Locations</a></li>
+          <li><a class="text-muted" href="#">Privacy</a></li>
+          <li><a class="text-muted" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</div>
+{% endblock %}
